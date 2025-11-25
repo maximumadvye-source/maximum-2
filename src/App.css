@@ -1,0 +1,724 @@
+.bcn-section {
+  max-width: 1200px;
+  margin: 64px auto 0 auto;
+  padding: 0 16px 48px 16px;
+}
+
+.bcn-section-title {
+  font-size: 2.2rem;
+  color: #23243a;
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.bcn-section-desc {
+  color: #444;
+  font-size: 1.15rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+}
+
+/* خدمات */
+.bcn-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.bcn-service-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0001;
+  padding: 24px 18px 18px 18px;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.bcn-service-card:hover {
+  box-shadow: 0 6px 32px #ffd70033;
+  transform: translateY(-4px) scale(1.03);
+}
+
+.bcn-service-img {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 12px;
+  border-radius: 12px 12px 0 0;
+  object-fit: cover;
+  display: block;
+}
+
+.bcn-img-placeholder {
+  border: 2px dashed #eee;
+}
+
+/* الأعمال */
+.bcn-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.bcn-portfolio-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0001;
+  text-align: center;
+  padding: 0 0 16px 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.bcn-portfolio-item:hover {
+  box-shadow: 0 6px 32px #ffd70033;
+  transform: translateY(-4px) scale(1.04);
+}
+
+.bcn-portfolio-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px 12px 0 0;
+  background: #f3f3f3;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.bcn-portfolio-item span {
+  display: block;
+  color: #23243a;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* صورة المعرض داخل البطاقات */
+.bcn-portfolio-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bcn-portfolio-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.45));
+  padding: 12px 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.bcn-portfolio-item:hover .bcn-portfolio-overlay,
+.bcn-portfolio-item:focus-within .bcn-portfolio-overlay {
+  opacity: 1;
+  transform: none;
+}
+
+.bcn-portfolio-caption {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* البطاقة: محتوى النص داخل البطاقة */
+.bcn-service-body {
+  padding: 12px 14px 18px 14px;
+}
+
+.bcn-service-card h3 {
+  margin: 8px 0 6px 0;
+  font-size: 1.1rem;
+}
+
+.bcn-service-card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.98rem;
+}
+
+/* لماذا نحن */
+.bcn-why-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.bcn-why-item {
+  background: #ffd70022;
+  color: #23243a;
+  border-radius: 12px;
+  padding: 18px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 12px #ffd70011;
+}
+
+/* تواصل معنا */
+.bcn-contact-box {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #0001;
+  padding: 32px 18px;
+  text-align: center;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 1.15rem;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', Arial, sans-serif;
+  color: #23243a;
+  background: #fff;
+  letter-spacing: 0.01em;
+  direction: rtl;
+}
+
+.amp-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.amp-cta.primary {
+  background: #00aaff;
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(0, 170, 255, 0.14);
+}
+
+.amp-cta.outline {
+  background: transparent;
+  color: #00aaff;
+  border: 2px solid #00aaff;
+}
+
+/* شريط علوي صغير فوق الهيدر */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: #111316;
+  color: #fff;
+  z-index: 300;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+.topbar-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.topbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.topbar-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: 0 0 34px;
+}
+
+.topbar-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.topbar-text {
+  color: #fff;
+  font-size: 0.92rem;
+  margin-right: 10px;
+  font-weight: 600;
+}
+
+.topbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.topbar-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.topbar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #00aaff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.topbar-icon svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    height: 48px;
+  }
+
+  .topbar-title {
+    font-size: 0.9rem;
+  }
+
+  .topbar-text {
+    display: none;
+  }
+}
+
+/* دفع الهيدر لأسفل بما يناسب الشريط العلوي */
+.amp-header {
+  top: 44px;
+}
+
+.bcn-hero-section {
+  position: relative;
+  z-index: 1;
+}
+
+.bcn-navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 16px 0 #0001;
+  border-bottom: 1px solid #eee;
+  backdrop-filter: blur(4px);
+}
+
+.bcn-navbar-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.bcn-logo {
+  margin: 0 32px;
+}
+
+.bcn-nav-list {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .bcn-navbar-content {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 4px;
+  }
+
+  .bcn-logo {
+    margin: 0 auto 8px auto;
+    display: block;
+  }
+
+  .bcn-nav-list {
+    gap: 8px;
+    font-size: 15px;
+  }
+
+  .bcn-section {
+    padding: 0 4px 32px 4px;
+  }
+
+  .bcn-hero-content {
+    padding: 28px 4px 24px 4px;
+    max-width: 98vw;
+  }
+
+  .bcn-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .bcn-section-title {
+    font-size: 1.3rem;
+  }
+
+  .bcn-service-img,
+  .bcn-portfolio-img {
+    height: 120px;
+  }
+}
+
+.bcn-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  border: 2px solid #ffd700;
+  background: #fff;
+  box-shadow: 0 2px 12px #0001;
+}
+
+.bcn-nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bcn-nav-list li {
+  color: #23243a;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s;
+  position: relative;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.bcn-nav-list li:hover {
+  color: #ffd700;
+  background: #f7f7f7;
+}
+
+.bcn-hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 90px;
+}
+
+.bcn-hero-content {
+  text-align: center;
+  animation: fadeInUp 1.2s cubic-bezier(.23, 1.01, .32, 1) both;
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #0001;
+  padding: 48px 32px 40px 32px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.bcn-hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #23243a;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px #ffd70022;
+}
+
+.bcn-hero-desc {
+  font-size: 1.18rem;
+  color: #444;
+  margin-bottom: 36px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bcn-hero-btn {
+  display: inline-block;
+  background: #ffd700;
+  color: #23243a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 14px 38px;
+  border-radius: 32px;
+  box-shadow: 0 2px 16px #ffd70022;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.bcn-hero-btn:hover {
+  background: #23243a;
+  color: #ffd700;
+  transform: scale(1.06) translateY(-2px);
+}
+
+/* AMP-like header and hero styles */
+.amp-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  padding-top: 160px;
+  /* مساحة للشريط العلوي + الهيدر الثابت */
+  border-bottom: none;
+  /* removed gold strip to avoid persistent horizontal line */
+  box-shadow: 0 2px 12px #ffd70022;
+  font-family: 'Cairo', Arial, sans-serif;
+}
+
+.amp-header-inner {
+  max-width: 1200px;
+  margin: 44px auto 0 auto;
+  /* leave room for topbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* logo centered */
+  padding: 14px 16px;
+  font-family: 'Cairo', Arial, sans-serif;
+  position: relative;
+}
+
+.amp-logo {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.amp-hamburger {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #00aaff, #0088dd);
+  color: #fff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0, 136, 221, 0.18);
+}
+
+.amp-nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.amp-nav li {
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Cairo', Arial, sans-serif;
+  color: #23243a;
+  padding: 6px 18px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.amp-hero {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  color: #23243a;
+}
+
+/* hero background image element (inline <img> to become LCP candidate) */
+.amp-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.amp-hero-inner {
+  z-index: 2;
+}
+
+.amp-hero-inner {
+  position: relative;
+  /* remove the white translucent box behind the hero text */
+  background: transparent;
+  padding: 48px 36px;
+  border-radius: 10px;
+  max-width: 940px;
+  text-align: center;
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.10);
+}
+
+/* بداية حالة مخفية للـ hero، تصبح مرئية عند إضافة الفئة .visible */
+.amp-hero-inner {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(.23, 1.01, .32, 1), transform 0.9s cubic-bezier(.23, 1.01, .32, 1);
+}
+
+.amp-hero-inner.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.amp-hero-title {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+  color: #0b6fae;
+  /* bluish headline to match screenshot */
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+.amp-hero-sub {
+  color: #4a5560;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+}
+
+.amp-hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.amp-hero-ctas .amp-cta {
+  min-width: 140px;
+}
+
+.amp-cta {
+  display: inline-block;
+  background: #ffd700;
+  color: #23243a;
+  padding: 12px 28px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(255, 215, 0, 0.12);
+}
+
+@media (max-width: 700px) {
+  .amp-logo {
+    width: 100px;
+  }
+
+  .amp-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    padding-top: 160px;
+    /* مساحة للشريط العلوي + الهيدر الثابت */
+    /* remove the gold border line under the header (disable only the border) */
+    border-bottom: none;
+    box-shadow: 0 2px 12px #ffd70022;
+    font-family: 'Cairo', Arial, sans-serif;
+  }
+
+  .amp-hero {
+    min-height: 420px;
+  }
+
+  .amp-hero-title {
+    font-size: 1.6rem;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+header {
+  padding: 20px 40px;
+  border-bottom: 1px solid #222;
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-box img {
+  width: 55px;
+  height: 55px;
+}
+
+.hero {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ccc;
+}
