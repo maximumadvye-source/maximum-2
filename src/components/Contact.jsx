@@ -8,7 +8,7 @@ export default function Contact() {
         <div>📞 +967 77 119 9341</div>
         <div>📧 aadm28285@gmail.com</div>
         <div>📍 صمعاء - اليمن</div>
-        <a href="https://wa.me/971506962354" className="bcn-hero-btn" target="_blank" rel="noopener noreferrer">تواصل واتساب</a>
+        <a href="https://wa.me/967771199341" className="bcn-hero-btn" target="_blank" rel="noopener noreferrer">تواصل واتساب</a>
       </div>
     </section>
   );
