@@ -21,6 +21,23 @@ const services = [
     desc: 'خدمات رفع قدرة الشبكات وتوصيل الاعتمادات المطلوبة.',
     img: '/images/ampcore/power.jpg',
   },
+
+  // --- الخدمات الجديدة ---
+  {
+    title: 'تنفيذ الأعمال الكهربائية',
+    desc: 'تنفيذ الأعمال الكهربائية للمباني والشركات والمنازل وفق أعلى المعايير.',
+    img: '/images/ampcore/electrical-works.jpg',
+  },
+  {
+    title: 'تركيب وصيانة الشاشات العملاقة',
+    desc: 'تركيب وصيانة شاشات LED العملاقة الخاصة بالإعلانات.',
+    img: '/images/ampcore/led-screens.jpg',
+  },
+  {
+    title: 'برمجة المحتوى الإعلاني',
+    desc: 'برمجة المحتوى الإعلاني وضبط المواعيد وتوقيت عرض الإعلانات.',
+    img: '/images/ampcore/content-programming.jpg',
+  },
 ];
 
 export default function Services() {
@@ -33,7 +50,15 @@ export default function Services() {
             <picture>
               <source type="image/webp" srcSet={srv.img.replace(/\.[^.]+$/, '.webp')} />
               <source type="image/webp" media="(max-width:800px)" srcSet={srv.img.replace(/\.[^.]+$/, '-sm.webp')} />
-              <img src={srv.img} alt={srv.title} className="bcn-service-img" loading="lazy" decoding="async" width="320" height="180" />
+              <img
+                src={srv.img}
+                alt={srv.title}
+                className="bcn-service-img"
+                loading="lazy"
+                decoding="async"
+                width="320"
+                height="180"
+              />
             </picture>
             <div className="bcn-service-body">
               <h3>{srv.title}</h3>
@@ -45,4 +70,3 @@ export default function Services() {
     </section>
   );
 }
-
