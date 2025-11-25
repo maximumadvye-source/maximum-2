@@ -14,7 +14,7 @@ const services = [
   {
     title: 'لوحات وتحكم',
     desc: 'تصميم وتركيب لوحات توزيع وتحكم جاهزة للمشاريع.',
-    img: '/images/ampcore/switchgear.jpg',
+    img: '/images/ampcore/34.webp',
   },
   {
     title: 'ترقيات القدرة',
@@ -45,3 +45,4 @@ export default function Services() {
     </section>
   );
 }
+
