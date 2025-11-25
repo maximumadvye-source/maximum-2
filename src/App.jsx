@@ -6,7 +6,6 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Portfolio from "./components/Portfolio";
 import Why from "./components/Why";
-import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 
 export default function App() {
@@ -44,12 +43,7 @@ export default function App() {
         <Portfolio />
       </section>
 
-      {/* آراء العملاء */}
-      <section className="py-20 bg-white shadow-inner">
-        <div className="container mx-auto px-6">
-          <Testimonials />
-        </div>
-      </section>
+      {/* آراء العملاء: تمّت إزالتها */}
 
       {/* تواصل معنا */}
       <section className="py-20 bg-[#0d1b2a] text-white">
