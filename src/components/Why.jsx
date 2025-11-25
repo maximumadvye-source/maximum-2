@@ -30,7 +30,7 @@ const items = [
 export default function Why() {
     return (
         <section className="bcn-section" id="why" data-aos="fade-up">
-            <h2 className="bcn-section-title">لماذا اخترت AMPCORE؟</h2>
+            <h2 className="bcn-section-title">لماذا اخترت ADAMOMER؟</h2>
             <div className="bcn-why-list">
                 {items.map((it, i) => (
                     <div className="bcn-why-item" key={i} data-aos="zoom-in" data-aos-delay={i * 80}>
@@ -47,3 +47,4 @@ export default function Why() {
         </section>
     );
 }
+
