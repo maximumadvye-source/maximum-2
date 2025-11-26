@@ -9,7 +9,7 @@ const services = [
   {
     title: 'تمديدات وكابلات',
     desc: 'تمديدات كهربائية وفق المعايير الفنية والتشغيلية.',
-    img: '/images/ampcore/rewires.jpg',
+    img: '/images/ampcore/02.webp',
   },
   {
     title: 'لوحات وتحكم',
@@ -21,24 +21,30 @@ const services = [
     desc: 'خدمات رفع قدرة الشبكات وتوصيل الاعتمادات المطلوبة.',
     img: '/images/ampcore/power.jpg',
   },
-
-  // --- الخدمات الجديدة ---
   {
     title: 'تنفيذ الأعمال الكهربائية',
     desc: 'تنفيذ الأعمال الكهربائية للمباني والشركات والمنازل وفق أعلى المعايير.',
-    img: '/images/ampcore/electrical-works.jpg',
+    img: '/images/ampcore/04.webp',
   },
   {
     title: 'تركيب وصيانة الشاشات العملاقة',
     desc: 'تركيب وصيانة شاشات LED العملاقة الخاصة بالإعلانات.',
-    img: '/images/ampcore/led-screens.jpg',
+    img: '/images/ampcore/16-sm.webp',
   },
   {
     title: 'برمجة المحتوى الإعلاني',
     desc: 'برمجة المحتوى الإعلاني وضبط المواعيد وتوقيت عرض الإعلانات.',
     img: '/images/ampcore/content-programming.jpg',
   },
+
+  // ⭐ الخدمة الجديدة
+  {
+    title: 'منظومات الطاقة الشمسية',
+    desc: 'تصميم وتركيب وتشغيل منظومات الطاقة الشمسية للمنازل والمزارع والشركات.',
+    img: '/images/ampcore/02 (2).webp',
+  },
 ];
+
 
 export default function Services() {
   return (

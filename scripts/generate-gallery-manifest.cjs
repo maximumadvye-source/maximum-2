@@ -27,7 +27,14 @@ function toPublicUrl(filePath) {
 }
 
 try {
-    const files = walk(publicDir).filter(f => path.basename(f) !== 'gallery-manifest.json');
+    // If a dedicated gallery folder exists, use only its images for the manifest.
+    const galleryDir = path.join(publicDir, 'المعرض');
+    let files;
+    if (fs.existsSync(galleryDir) && fs.statSync(galleryDir).isDirectory()) {
+        files = walk(galleryDir);
+    } else {
+        files = walk(publicDir).filter(f => path.basename(f) !== 'gallery-manifest.json');
+    }
 
     // Natural sort helper (numeric-aware, case-insensitive)
     const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
@@ -36,15 +43,18 @@ try {
         return collator.compare(a, b);
     }
 
-    // Prefer images under /images/ampcore/ first, then others; within each group use natural sort
+    // Sort naturally; if producing from the gallery folder the paths will
+    // already be rooted under '/المعرض/'. For mixed-mode fallback, prefer
+    // '/المعرض/' then '/images/ampcore/' then '/images/'.
     function manifestSort(a, b) {
         const aPublic = toPublicUrl(a);
         const bPublic = toPublicUrl(b);
-        const prefix = 'images/ampcore/';
-        const aIsAmp = aPublic.startsWith('/' + prefix);
-        const bIsAmp = bPublic.startsWith('/' + prefix);
-        if (aIsAmp && !bIsAmp) return -1;
-        if (!aIsAmp && bIsAmp) return 1;
+        const pref = ['/' + 'المعرض' + '/', '/images/ampcore/', '/images/'];
+        const ia = pref.findIndex(p => aPublic.startsWith(p));
+        const ib = pref.findIndex(p => bPublic.startsWith(p));
+        const sa = ia === -1 ? pref.length : ia;
+        const sb = ib === -1 ? pref.length : ib;
+        if (sa !== sb) return sa - sb;
         return naturalSort(aPublic, bPublic);
     }
 

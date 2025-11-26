@@ -5,26 +5,71 @@ export default function Portfolio() {
 
   useEffect(() => {
     let mounted = true;
-    // Try to load generated manifest in public folder
-    fetch('/gallery-manifest.json')
-      .then((r) => {
-        if (!r.ok) throw new Error('manifest not found');
-        return r.json();
-      })
-      .then((list) => {
-        if (mounted && Array.isArray(list)) {
-          setImages(list.map((url) => ({ img: url, caption: '' })));
+    // Try to load generated manifest in public folder. If missing, generate a list
+    // of expected files /المعرض/SNA1.webp .. /المعرض/SNA300.webp and include only
+    // those that actually exist (checked via HEAD requests, limited concurrency).
+    const load = async () => {
+      try {
+        const r = await fetch('/gallery-manifest.json');
+        if (r.ok) {
+          const list = await r.json();
+          if (mounted && Array.isArray(list) && list.length) {
+            setImages(list.map((url) => ({ img: url, caption: '' })));
+            return;
+          }
         }
-      })
-      .catch(() => {
-        // fallback: use the hardcoded default list if manifest missing
-        setImages([
-          { img: '/images/ampcore/ElectricalWrokAutodrome-2.jpg', caption: 'مشروع أوتودروم - تنفيذ تمديدات كهربائية متكاملة' },
-          { img: '/images/ampcore/ElectricalWrokAutodrome-3.jpg', caption: 'مشروع صيانة وتجديد أنظمة كهربائية' },
-          { img: '/images/ampcore/CollinsAerospace_Logo_White.jpg', caption: 'تركيب أنظمة كهربائية لمصنع طيران' },
-          { img: '/images/ampcore/dewa.jpg', caption: 'اعتماد هيئة كهرباء ومياه دبي (DEWA)' },
-        ]);
-      });
+      } catch (err) {
+        // fallthrough to generated list
+      }
+
+      // generate candidate paths
+      const maxIndex = 300;
+      const base = '/المعرض/SNA';
+      const candidates = Array.from({ length: maxIndex }, (_, i) => `${base}${i + 1}.webp`);
+
+      // concurrency-limited existence checks
+      const concurrency = 12;
+      let cursor = 0;
+      const found = [];
+
+      const worker = async () => {
+        while (true) {
+          const i = cursor++;
+          if (i >= candidates.length) break;
+          const url = candidates[i];
+          try {
+            const res = await fetch(url, { method: 'HEAD' });
+            if (res && res.ok) found.push(url);
+          } catch (e) {
+            // ignore network errors for this url
+          }
+        }
+      };
+
+      await Promise.all(Array.from({ length: concurrency }).map(() => worker()));
+
+      if (mounted) {
+        if (found.length) {
+          // sort found by numeric order just in case
+          found.sort((a, b) => {
+            const na = parseInt(a.match(/SNA(\d+)\.webp$/)?.[1] || '0', 10);
+            const nb = parseInt(b.match(/SNA(\d+)\.webp$/)?.[1] || '0', 10);
+            return na - nb;
+          });
+          setImages(found.map((url) => ({ img: url, caption: '' })));
+        } else {
+          // final fallback: a small curated list
+          setImages([
+            { img: '/images/ampcore/ElectricalWrokAutodrome-2.jpg', caption: 'مشروع أوتودروم - تنفيذ تمديدات كهربائية متكاملة' },
+            { img: '/images/ampcore/ElectricalWrokAutodrome-3.jpg', caption: 'مشروع صيانة وتجديد أنظمة كهربائية' },
+            { img: '/images/ampcore/CollinsAerospace_Logo_White.jpg', caption: 'تركيب أنظمة كهربائية لمصنع طيران' },
+            { img: '/images/ampcore/dewa.jpg', caption: 'اعتماد هيئة كهرباء ومياه دبي (DEWA)' },
+          ]);
+        }
+      }
+    };
+
+    load();
 
     return () => {
       mounted = false;
