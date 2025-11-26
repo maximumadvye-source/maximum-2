@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "generate-manifest": "node scripts/generate-gallery-manifest.cjs",
+    "dev": "npm run generate-manifest && vite",
+    "build": "npm run generate-manifest && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,7 +14,6 @@
     "aos": "^2.3.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^6.30.2",
     "sharp": "^0.34.5"
   },
   "devDependencies": {

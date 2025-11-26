@@ -213,12 +213,13 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 44px;
-  background: #111316;
+  height: 56px;
+  /* increased height */
+  background: linear-gradient(90deg, #0b1220, #111316);
   color: #fff;
-  z-index: 300;
+  z-index: 400;
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
 }
 
 .topbar-inner {
@@ -318,7 +319,8 @@ body {
 
 /* دفع الهيدر لأسفل بما يناسب الشريط العلوي */
 .amp-header {
-  top: 44px;
+  top: 56px;
+  /* keep header below the topbar */
 }
 
 .bcn-hero-section {
@@ -509,7 +511,7 @@ body {
 
 .amp-header-inner {
   max-width: 1200px;
-  margin: 44px auto 0 auto;
+  margin: 56px auto 0 auto;
   /* leave room for topbar */
   display: flex;
   align-items: center;
