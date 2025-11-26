@@ -1,0 +1,23 @@
+.amp-header {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    /* يمكنك تغييرها */
+}
+
+.amp-header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    /* ← الشعار في اليسار */
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.amp-logo-wrap img {
+    height: 80px;
+    /* عدّل الحجم هنا */
+    width: auto;
+    object-fit: contain;
+}
