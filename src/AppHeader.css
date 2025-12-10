@@ -16,8 +16,327 @@
 }
 
 .amp-logo-wrap img {
-    height: 80px;
+    height: 120px;
     /* عدّل الحجم هنا */
     width: auto;
     object-fit: contain;
+}
+
+/* تحسّنات للحركات وتخطيط الأزرار */
+.amp-nav {
+    margin-inline-start: 24px;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.amp-nav-link {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 220ms ease, transform 200ms ease;
+}
+
+.amp-nav-link:hover,
+.amp-nav-link:focus {
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.amp-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    will-change: transform;
+}
+
+.btn:focus {
+    outline: 3px solid rgba(37, 99, 235, 0.15);
+    outline-offset: 2px;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #0ea5e9, #2563eb);
+    color: white;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.16);
+}
+
+.btn-ghost {
+    background: rgba(15, 23, 42, 0.04);
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.btn-ghost:hover {
+    transform: translateY(-2px);
+    background: rgba(15, 23, 42, 0.06);
+}
+
+/* تأثير تقلص الهيدر عند التمرير */
+.amp-header {
+    transition: background-color 250ms ease, box-shadow 250ms ease, padding 220ms ease;
+}
+
+.amp-header--scrolled {
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
+}
+
+.amp-header--scrolled .amp-logo-wrap img {
+    height: 72px;
+    transition: height 220ms ease;
+}
+
+
+/* Topbar improvements: move nav + CTAs here; use white background and dark text */
+.topbar {
+    background: #fff;
+    color: #23243a;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 8px 16px;
+}
+
+.topbar-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.topbar-nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.topbar-nav-link {
+    color: #23243a;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 8px;
+    border-radius: 8px;
+}
+
+.topbar-nav-link:hover {
+    background: #f7f7f7;
+}
+
+.topbar-ctas {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.topbar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    transition: transform 140ms ease, background 140ms ease;
+    color: inherit
+}
+
+.topbar-icon:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.06)
+}
+
+/* Ensure SVG icons use the topbar text color when topbar is light */
+.topbar-icon svg path,
+.topbar-icon svg {
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* استجابة */
+@media (max-width: 880px) {
+    .amp-nav {
+        display: none
+    }
+
+    .amp-actions .btn {
+        padding: 8px 10px;
+        font-size: 14px
+    }
+
+    .amp-logo-wrap img {
+        height: 64px
+    }
+}
+
+/* احترام تفضيل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+
+    .amp-nav-link,
+    .btn,
+    .amp-header {
+        transition: none
+    }
+}
+
+/* هامبورغر وقائمة الموبايل */
+.hamburger {
+    display: none;
+    /* يظهر على الشاشات الصغيرة */
+    background: transparent;
+    border: none;
+    padding: 8px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.hamburger .hamburger-box {
+    display: inline-block;
+    position: relative;
+    width: 28px;
+    height: 18px
+}
+
+.hamburger .hamburger-inner,
+.hamburger .hamburger-inner::before,
+.hamburger .hamburger-inner::after {
+    width: 28px;
+    height: 2px;
+    background: #0f172a;
+    display: block;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: transform 220ms ease, opacity 160ms ease;
+}
+
+.hamburger .hamburger-inner {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger .hamburger-inner::before {
+    content: '';
+    top: -8px
+}
+
+.hamburger .hamburger-inner::after {
+    content: '';
+    top: 8px
+}
+
+.hamburger.is-open .hamburger-inner {
+    transform: rotate(45deg)
+}
+
+.hamburger.is-open .hamburger-inner::before {
+    transform: rotate(-90deg) translateX(-6px);
+    top: 0
+}
+
+.hamburger.is-open .hamburger-inner::after {
+    opacity: 0
+}
+
+@media (max-width: 880px) {
+    .hamburger {
+        display: inline-flex
+    }
+}
+
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    display: none;
+    pointer-events: none;
+}
+
+.mobile-menu.open {
+    display: block;
+    pointer-events: auto
+}
+
+.mobile-menu-inner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 86%;
+    max-width: 360px;
+    background: white;
+    box-shadow: -12px 0 30px rgba(2, 6, 23, 0.12);
+    transform: translateX(8%);
+    transition: transform 260ms cubic-bezier(.2, .9, .2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 18px;
+    align-items: stretch;
+    justify-content: flex-start;
+    direction: rtl;
+}
+
+.mobile-menu.open .mobile-menu-inner {
+    transform: translateX(0)
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.mobile-nav-link {
+    font-size: 18px;
+    color: #0f172a;
+    text-decoration: none;
+    padding: 10px 6px;
+    border-radius: 8px;
+    transition: background 150ms ease
+}
+
+.mobile-nav-link:hover {
+    background: rgba(15, 23, 42, 0.04)
+}
+
+.mobile-ctas {
+    display: flex;
+    gap: 10px;
+    margin-top: auto
+}
+
+.mobile-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.36);
+    border: none
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hamburger .hamburger-inner,
+    .mobile-menu-inner {
+        transition: none
+    }
 }
