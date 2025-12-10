@@ -665,7 +665,7 @@ body {
     top: 0;
     left: 0;
     z-index: 200;
-    padding-top: 160px;
+    padding-top: 40px;
     /* مساحة للشريط العلوي + الهيدر الثابت */
     /* remove the gold border line under the header (disable only the border) */
     border-bottom: none;
